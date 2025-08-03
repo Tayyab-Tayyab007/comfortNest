@@ -18,7 +18,8 @@
     "mongoose": "^8.15.0",
     "morgan": "^1.10.0",
     "multer": "^2.0.1",
-    "nodemailer": "^7.0.5"
+    "nodemailer": "^7.0.5",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
