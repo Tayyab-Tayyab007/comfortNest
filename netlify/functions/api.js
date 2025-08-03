@@ -27,7 +27,10 @@ db.once('open', () => {
 });
 
 // Routes
-app.use('/api/properties', propertyRoutes);
-app.use('/api/users', userRoutes);
+const router = express.Router();
+router.use('/properties', propertyRoutes);
+router.use('/users', userRoutes);
+
+app.use('/api', router);
 
 module.exports.handler = serverless(app);
