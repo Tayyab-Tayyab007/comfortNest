@@ -1,0 +1,104 @@
+@import url('styles.css');
+
+.text-bold {
+    font-weight: 800;
+}
+
+text-color {
+    color: #0093c4;
+}
+
+/* Preview images */
+.previews img {
+    width: 100%;
+    height: 140px;
+}
+
+.main-description .category {
+    text-transform: uppercase;
+    color: #0093c4;
+}
+
+.main-description .product-title {
+    font-size: 2.5rem;
+}
+
+.new-price {
+    font-size: 2rem;
+}
+
+/* Action Buttons */
+.call-btn,
+.whatsapp-btn {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease;
+ 
+  font-size: 1.6rem;
+}
+
+.call-btn:hover {
+  background-color: darken(#6ABF00, 10%);
+  
+}
+
+.whatsapp-btn a {
+  color: #128C7E;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+ 
+  text-decoration: none;
+}
+
+.whatsapp-btn i {
+  font-size: 2.4rem;
+  text-decoration: none;
+  
+}
+
+.details-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #757575;
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+    /* Make preview images responsive  */
+    .previews img {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+header.header {
+  /* Use styles from styles.css */
+}
+header.header .navigation,
+header.header .nav-center,
+header.header .nav-list,
+header.header .nav-link,
+header.header .auth-buttons,
+header.header .hamburger {
+  /* Inherit from styles.css */
+}
+
+/* Remove or override the old header background if needed */
+header {
+  background: none;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+}
+
+/* Ensure main content has spacing below the navbar */
+.container.my-5 {
+  margin-top: 20px !important; /* Reduced since global padding handles navbar clearance */
+}
+
+/* Add or improve media queries for better mobile responsiveness */

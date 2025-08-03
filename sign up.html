@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Property Rental</title>
+    <link rel="stylesheet" href="signup.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome and Boxicons for icons -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="custom-navbar">
+            <div class="container">
+                <a class="custom-navbar-brand" href="/index.html">
+                    <img src="./comf logo.png" alt="ComfortNest">
+                </a>
+                <button class="custom-hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="custom-nav-list">
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/index.html">Home</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/dashboard.html">Dashboard</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/about.html">About</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/contact.html">Contact</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sign Up Form Section -->
+    <section class="signup-section">
+        <div class="signup-container">
+            <div class="signup-card">
+                    <h2>Create an Account</h2>
+                    <form id="signup-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <button type="button" id="sendEmailOtp" style="background-color: #6abf00; color: #fff;">Send OTP</button>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="emailOtp">Email OTP</label>
+                            <input type="text" id="emailOtp" name="emailOtp" placeholder="Enter OTP">
+                            <button type="button" id="verifyEmailOtp" style="background-color: #6abf00; color: #fff;">Verify OTP</button>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn-primary signup-btn">Sign Up</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth0 SDK -->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="js/auth0-config.js"></script>
+    <script src="js/signup-auth0.js" defer></script>
+    
+    <!-- API and JS scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("TZ1vCirsSMLfjTch5");
+      })();
+    </script>
+    <script src="js/api.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

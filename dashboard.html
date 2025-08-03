@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard | ComfortNest</title>
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom StyleSheets -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="custom-navbar">
+            <div class="container">
+                <a class="custom-navbar-brand" href="/index.html">
+                    <img src="./comf logo.png" alt="ComfortNest">
+                </a>
+                <button class="custom-hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="custom-nav-list">
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/index.html">Home</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/dashboard.html">Dashboard</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/about.html">About</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/contact.html">Contact</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="custom-nav-item"><button id="logout-btn" class="btn btn-outline-success ms-lg-3 px-3">Logout <i class="fas fa-sign-out-alt"></i></button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <h1 class="text-center mb-5 display-4 fw-bold text-success">Your Seller Dashboard</h1>
+            
+            <!-- Phone Verification Message -->
+           <div>
+    <h5 class="alert-heading mb-1">Phone Number Required</h5>
+    <p class="mb-2">
+       To complete your profile, please email the admin to add your phone number. Click on email to send a direct message and include your details.
+    </p>
+    <p class="mb-0">
+        <a href="mailto:comfortnestproject@gmail.com?subject=Request%20for%20Phone%20Number%20Verification&body=Hi%20Team,%0D%0A%0D%0AI%20am%20a%20new%20landloader.%20Please%20add%20my%20phone%20number.%20Here%20are%20my%20details:%0D%0A%0D%0APhone%20Number%3A%0D%0AUser%20ID%3A%0D%0AEmail%3A%0D%0A%0D%0AThank%20you!" style="font-weight: bold; color: #6abf00;">
+            comfortnestproject@gmail.com
+        </a>
+    </p>
+</div>
+
+
+            <!-- Dashboard Content with Perfect Alignment -->
+            <div class="dashboard-content-wrapper">
+                <!-- Top Row: Profile and Statistics -->
+                <div class="row mb-4 dashboard-top-row">
+                    <!-- User Profile Card - Left Side -->
+                    <div class="col-md-6">
+                        <div class="dashboard-card profile-card">
+                            <h2 class="card-title">My Profile</h2>
+                            <div class="profile-info">
+                                <p><i class="fas fa-user-circle me-2"></i>Name: <span id="user-name-detail">Loading...</span></p>
+                                <p><i class="fas fa-envelope me-2"></i>Email: <span id="user-email">Loading...</span></p>
+                                <p><i class="fas fa-id-badge me-2"></i>User ID: <span id="user-display-id">Loading...</span></p>
+                                <p><i class="fas fa-phone me-2"></i>Phone: <span id="user-phone">Loading...</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Statistics Card - Right Side -->
+                    <div class="col-md-6">
+                        <div class="dashboard-card stats-card">
+                            <h2 class="card-title">Your Statistics</h2>
+                            <div class="row stats-grid">
+                                <div class="col-sm-6 mb-3">
+                                    <div class="stat-item">
+                                        <i class="fas fa-home"></i>
+                                        <div class="stat-count" id="property-count">0</div>
+                                        <div class="stat-label">Properties Listed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Property Listings -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="dashboard-card listings-card">
+                        <h2 class="card-title d-flex justify-content-between align-items-center flex-wrap">
+                            <span>My Property Listings</span>
+                            <div class="input-group" style="max-width: 300px; min-width: 250px;">
+                                <input type="text" class="form-control" placeholder="Search properties..." id="property-search">
+                                <button class="btn btn-outline-success" type="button"><i class="fas fa-search"></i></button>
+                            </div>
+                        </h2>
+                        <div class="row property-list-grid" id="property-list">
+                            <!-- Property cards will be loaded dynamically here -->
+                            <div class="col-12 text-center py-5">
+                                <div class="spinner-border text-success" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-3 text-muted">Loading your properties...</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Dashboard Content Wrapper -->
+        </div>
+    </main>
+
+    <!-- Floating Add Property Button -->
+    <a href="/add-property.html" class="add-property-floating-btn">
+        <i class="fas fa-plus"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>ComfortNest is your trusted partner in finding the perfect property. We connect renters and buyers with a wide range of residential and commercial listings, making your search effortless and efficient.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Street # 123, Okara</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+92 323 9140684</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>comfortnestproject@gmail.com</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=923239140684" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ComfortNest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script>
+        // Debug script to check localStorage before loading other scripts
+        console.log('Debug - localStorage contents:');
+        console.log('User:', localStorage.getItem('user'));
+        console.log('Token:', localStorage.getItem('token'));
+        console.log('Properties:', localStorage.getItem('properties'));
+    </script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>
