@@ -1,0 +1,219 @@
+/* Add these at the top or after your general styles */
+@import url('styles.css');
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* Remove or override old header styles if needed */
+header.header {
+  /* Use styles from styles.css */
+}
+header.header .navigation,
+header.header .nav-center,
+header.header .nav-list,
+header.header .nav-link,
+header.header .auth-buttons,
+header.header .hamburger {
+  /* Inherit from styles.css */
+}
+
+/* Remove or override the old header background if needed */
+header {
+  background: none;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 60px 0;
+    /* Removed margin-top as it's now handled globally in styles.css */
+}
+
+.about-section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.about-content {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-content h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.about-content p {
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-content ul li {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    background: rgba(106, 191, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    position: relative;
+}
+
+.about-content ul li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* About image styles removed - no longer needed */
+
+/* Team Section Styles */
+.team-section {
+    background-color: var(--bg-white);
+    padding: 60px 0;
+}
+
+.team-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.team-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.team-member {
+    width: 30%;
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius-round);
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+    border: 3px solid var(--primary-light);
+}
+
+.team-member h3 {
+    margin-top: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.team-member p {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 0.8em;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .about-section .container {
+        gap: var(--spacing-md);
+    }
+    
+    .team-member {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section .container {
+        flex-direction: column;
+    }
+
+    .about-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+        padding: 0 20px;
+    }
+    
+    .team-members {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 576px) {
+    .team-member {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto var(--spacing-lg);
+    }
+}
+
+/* Add or improve media queries for better mobile responsiveness */

@@ -1,0 +1,665 @@
+/* Import main styles */
+@import url('styles.css');
+
+/* Property Detail Section */
+.property-detail-section {
+    padding: 60px 0;
+    margin-top: 80px;
+    background-color: var(--bg-light);
+}
+
+.property-images {
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-slide {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    min-height: 300px;
+    max-height: 600px;
+    position: relative;
+}
+
+.property-slide::after {
+    content: '🔍 Click to enlarge';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.property-slide:hover::after {
+    opacity: 1;
+}
+
+.property-slide img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    loading: lazy;
+    background-color: #f8f9fa;
+}
+
+.property-slide img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Image loading placeholder */
+.property-slide img[src=""],
+.property-slide img:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.property-info {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-title {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.property-location {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+}
+
+.property-location i {
+    color: var(--primary-color);
+    margin-right: var(--spacing-xs);
+}
+
+.property-price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.property-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid #eee;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+}
+
+.meta-item i {
+    color: var(--primary-color);
+    margin-right: var(--spacing-xs);
+    font-size: 1.2rem;
+}
+
+.meta-item span {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.property-description {
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-description h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.property-description p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.property-features {
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-features h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-item i {
+    color: var(--primary-color);
+    margin-right: var(--spacing-xs);
+}
+
+/* Beautiful Contact Seller Section */
+.contact-seller {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-seller::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6ABF00, #25D366, #007bff);
+    border-radius: 20px 20px 0 0;
+}
+
+.contact-seller h3 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.contact-seller h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #6ABF00, #25D366);
+    border-radius: 2px;
+}
+
+/* Contact Buttons Container */
+.contact-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Beautiful Contact Buttons */
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-btn i {
+    margin-right: 0.75rem;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Call Button */
+.call-btn {
+    background: linear-gradient(135deg, #6ABF00 0%, #5aa000 100%);
+    box-shadow: 0 4px 15px rgba(106, 191, 0, 0.3);
+}
+
+.call-btn:hover {
+    background: linear-gradient(135deg, #5aa000 0%, #4a8800 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 191, 0, 0.4);
+    color: white;
+}
+
+/* Email Button */
+.email-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.email-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    color: white;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366 0%, #1ebe57 100%);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: linear-gradient(135deg, #1ebe57 0%, #17a548 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .contact-buttons-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .contact-btn {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-seller {
+        padding: 1.5rem;
+        margin: 1rem;
+        border-radius: 15px;
+    }
+
+    .contact-seller h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+    }
+}
+
+/* Additional Contact Section Enhancements */
+.contact-seller {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Button Pulse Effect */
+.contact-btn {
+    position: relative;
+}
+
+.contact-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.contact-btn:active::after {
+    width: 100%;
+    height: 100%;
+}
+
+/* Seller Info Enhancement */
+.owner-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid #6ABF00;
+}
+
+.owner-info p {
+    margin: 0;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Contact Section Separator */
+.contact-seller {
+    border-top: 2px solid #e9ecef;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+#property-map {
+    height: 400px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .property-slide {
+        min-height: 250px;
+        max-height: 500px;
+    }
+
+    .property-title {
+        font-size: 1.8rem;
+    }
+
+    .property-price {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .property-slide {
+        min-height: 200px;
+        max-height: 400px;
+    }
+
+    .property-info {
+        padding: var(--spacing-md);
+    }
+
+    .property-title {
+        font-size: 1.6rem;
+    }
+
+    .property-price {
+        font-size: 1.4rem;
+    }
+
+    .property-meta {
+        gap: var(--spacing-sm);
+    }
+
+    #property-map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .property-detail-section {
+        padding: 40px 0;
+    }
+
+    .property-slide {
+        min-height: 180px;
+        max-height: 350px;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pd-wrap {
+	padding: 40px 0;
+	font-family: 'Poppins', sans-serif;
+    
+}
+
+.position {
+	color: #adadad;
+	font-size: 14px;
+}
+.owl-nav button {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	outline: none;
+	height: 25px;
+}
+.owl-nav button svg {
+	width: 25px;
+	height: 25px;
+}
+.owl-nav button.owl-prev {
+	left: 25px;
+}
+.owl-nav button.owl-next {
+	right: 25px;
+}
+.owl-nav button span {
+	font-size: 45px;
+}
+.product-thumb .item img {
+	height: 100px;
+   
+}
+
+
+
+.product-dtl p {
+	font-size: 14px;
+	line-height: 24px;
+	color: #7a7a7a;
+}
+.product-dtl .form-control {
+	font-size: 15px;
+}
+.product-dtl label {
+	line-height: 16px;
+	font-size: 15px;
+}
+.form-control:focus {
+	outline: none;
+	box-shadow: none;
+}
+.product-count {
+	margin-top: 15px; 
+}
+
+
+
+
+.mb-20 {
+	margin-bottom: 20px;
+}
+
+/* Image Modal Styles */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.image-modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.image-modal-close:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.image-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.image-modal-nav:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.image-modal-prev {
+    left: 20px;
+}
+
+.image-modal-next {
+    right: 20px;
+}
+
+.image-modal-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Mobile Modal Styles */
+@media (max-width: 768px) {
+    .image-modal-content {
+        padding: 10px;
+    }
+
+    .image-modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .image-modal-nav {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .image-modal-prev {
+        left: 10px;
+    }
+
+    .image-modal-next {
+        right: 10px;
+    }
+
+    .image-modal img {
+        max-height: 85vh;
+    }
+}
+

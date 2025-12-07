@@ -1,0 +1,221 @@
+# ========================================================================
+# ComfortNest - Git Ignore Configuration
+# ========================================================================
+# This file tells Git which files and directories to ignore when
+# committing code to the repository. This prevents sensitive data
+# and unnecessary files from being uploaded to GitHub.
+#
+# @author ComfortNest Development Team
+# @version 1.0.0
+# ========================================================================
+
+# ======== ENVIRONMENT & SECRETS ========
+# Never commit environment variables or secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+
+# Environment variable backups
+.env.backup
+.env.orig
+.env.save
+
+# ======== NODE.JS & NPM ========
+# Dependencies installed by npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package manager lock files (keep package-lock.json, ignore others)
+yarn.lock
+pnpm-lock.yaml
+
+# NPM cache
+.npm
+.yarn-integrity
+
+# Optional npm cache directory
+.npm
+
+# ======== LOGS & DEBUGGING ========
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# ======== OPERATING SYSTEM FILES ========
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ======== DEVELOPMENT TOOLS ========
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ======== TEMPORARY & CACHE FILES ========
+# Temporary folders
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# ======== BUILD & DISTRIBUTION ========
+# Build outputs
+build/
+dist/
+out/
+
+# ======== DATABASE & UPLOADS ========
+# Database files (if using local SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded files (keep the directory structure but ignore content)
+# Comment out if you want to track uploaded images
+# public/uploads/*
+# !public/uploads/.gitkeep
+
+# ======== SECURITY & SENSITIVE DATA ========
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cert
+
+# API keys and secrets
+secrets.json
+config/secrets.js
+
+# ======== BACKUP & ARCHIVE FILES ========
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ======== DOCUMENTATION DRAFTS ========
+# Draft documentation (keep final versions)
+*.draft.md
+NOTES.md
+TODO.md
+
+# ======== TESTING ========
+# Test coverage
+coverage/
+.nyc_output/
+
+# ======== MISC ========
+# Runtime configuration
+.eslintcache
+.stylelintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# ========================================================================
+# PROJECT SPECIFIC IGNORES
+# ========================================================================
+
+# Ignore screenshot files and development images
+Screenshot*.png
+WhatsApp*.jpg
+*.screenshot.*
+
+# Ignore development documentation
+SDS_*.md
+SRS_*.md
+
+# ========================================================================
+# KEEP THESE FILES (Examples of what NOT to ignore)
+# ========================================================================
+# !README.md
+# !package.json
+# !package-lock.json
+# !server.js
+# !.env.example
+# !public/uploads/.gitkeep
+
+# ========================================================================
+# END OF GITIGNORE
+# ========================================================================

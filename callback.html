@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Callback | ComfortNest</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .callback-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4285F4;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .status-message {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .status-error {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+        
+        .status-success {
+            background-color: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .status-info {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="callback-container">
+        <h1>Verifying Authentication</h1>
+        <div class="loading-spinner"></div>
+        <p>Please wait while we complete the authentication process...</p>
+        <div id="status-message" class="status-message status-info">
+            Processing authentication...
+        </div>
+    </div>
+
+    <!-- Auth0 SDK -->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="js/auth0-config.js"></script>
+    <script>
+        // Process Auth0 authentication callback
+        async function handleCallback() {
+            try {
+                // Initialize Auth0 client
+                await window.auth0.initializeAuth0();
+                
+                // Get Auth0 client
+                const auth0Client = window.auth0.client();
+                if (!auth0Client) {
+                    throw new Error('Auth0 client not initialized');
+                }
+                
+                // Check if this is a callback URL with auth parameters
+                if (window.location.search.includes('code=') || 
+                    window.location.search.includes('error=')) {
+                    
+                    // Handle the redirect callback
+                    await auth0Client.handleRedirectCallback();
+                    
+                    // Get user info
+                    const user = await auth0Client.getUser();
+                    
+                    // Update status message
+                    const statusMessage = document.getElementById('status-message');
+                    statusMessage.textContent = 'Authentication successful! Redirecting...';
+                    statusMessage.className = 'status-message status-success';
+                    
+                    // Store user info in localStorage if needed
+                    localStorage.setItem('auth_user', JSON.stringify(user));
+                    
+                    // Redirect to home page or dashboard
+                    setTimeout(() => {
+                        window.location.href = '/index.html';
+                    }, 1500);
+                } else {
+                    // No auth parameters, redirect to home
+                    window.location.href = '/index.html';
+                }
+            } catch (error) {
+                console.error('Callback handling error:', error);
+                
+                // Update status message with error
+                const statusMessage = document.getElementById('status-message');
+                statusMessage.textContent = 'Authentication error: ' + error.message;
+                statusMessage.className = 'status-message status-error';
+                
+                // Add a button to try again
+                const container = document.querySelector('.callback-container');
+                const tryAgainBtn = document.createElement('button');
+                tryAgainBtn.textContent = 'Try Again';
+                tryAgainBtn.style.padding = '10px 20px';
+                tryAgainBtn.style.marginTop = '20px';
+                tryAgainBtn.style.backgroundColor = '#4285F4';
+                tryAgainBtn.style.color = 'white';
+                tryAgainBtn.style.border = 'none';
+                tryAgainBtn.style.borderRadius = '4px';
+                tryAgainBtn.style.cursor = 'pointer';
+                
+                tryAgainBtn.addEventListener('click', () => {
+                    window.location.href = '/login.html';
+                });
+                
+                container.appendChild(tryAgainBtn);
+            }
+        }
+
+        // Execute the callback handler when the page loads
+        window.addEventListener('DOMContentLoaded', handleCallback);
+    </script>
+</body>
+</html> 

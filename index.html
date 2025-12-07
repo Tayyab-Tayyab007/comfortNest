@@ -1,0 +1,372 @@
+<!--
+  ComfortNest Property Rental Application - Main Homepage
+
+  This is the main landing page for the ComfortNest property rental application.
+  It provides a comprehensive property search interface with both desktop and
+  mobile-optimized experiences.
+
+  FEATURES:
+  - Responsive property search interface
+  - Real-time filtering and search capabilities
+  - Property card display grid
+  - Mobile-first responsive design
+  - User authentication integration
+  - SEO-optimized structure and meta tags
+
+  SEARCH FUNCTIONALITY:
+  - Universal search input for property titles/descriptions
+  - Price range filtering (min/max)
+  - Location/city filtering
+  - Bedroom/bathroom count filtering (exact match)
+  - Real-time results as user types
+  - Mobile dropdown search interface
+  - Reset filters functionality
+
+  RESPONSIVE DESIGN:
+  - Desktop: Inline search filters with real-time updates
+  - Mobile: Dropdown search interface with touch optimization
+  - Tablet: Optimized layouts for medium screens
+  - Touch-friendly interactions across all devices
+
+  STRUCTURE:
+  - Header with navigation and branding
+  - Hero section with main search interface
+  - Property grid with dynamic filtering
+  - Footer with contact information
+
+  @author ComfortNest Development Team
+  @version 1.0.0
+  @since 2024
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ComfortNest - Find your dream home. Browse properties for rent and sale with the leading real estate marketplace." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preload" href="./images/pic1.jpg" as="image" type="image/jpeg">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style">
+
+    <!-- Google Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome - Defer non-critical icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Critical CSS - Inline for faster loading -->
+    <style>
+      /* Critical above-the-fold styles */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        padding-top: 80px !important;
+      }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+      .header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; top: 0; width: 100%; z-index: 1002; }
+      .custom-navbar { padding: 1rem 0; height: 80px; }
+      .hero { height: 70vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./images/pic1.jpg'); background-size: cover; background-position: center; margin-top: 0 !important; }
+      .loading-container { display: flex; flex-direction: column; align-items: center; padding: 3rem; }
+      .loading-spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #6abf00; border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @media (max-width: 768px) {
+        body { padding-top: 70px !important; }
+        .custom-navbar { height: 70px; }
+      }
+    </style>
+
+    <!-- Custom StyleSheet - Load after critical CSS -->
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Welcome to ComfortNest</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+      <nav class="custom-navbar">
+        <div class="container">
+          <a class="custom-navbar-brand" href="/index.html">
+            <img src="./comf logo.png" alt="ComfortNesContact Seller
+Contact Seller
+Contact Seller
+Contact Sellet">
+          </a>
+          <button class="custom-hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="custom-nav-list">
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/index.html">Home</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/dashboard.html">Dashboard</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/about.html">About</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/contact.html">Contact</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Search Section -->
+      <section class="search-section">
+        <div class="container">
+          <h1 class="search-title">Find Your Dream Home</h1>
+        <!-- Universal Search Form with Inline Filters -->
+        <div class="search-container">
+          <form class="universal-search-form" method="GET" action="/search">
+          <!-- Mobile Search Toggle Button -->
+          <button type="button" class="mobile-search-toggle" id="mobile-search-toggle" aria-expanded="false">
+            <div class="mobile-search-content">
+              <i class="fas fa-search"></i>
+              <span>Search Properties</span>
+            </div>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </button>
+
+
+            <!-- Mobile Filters Dropdown Content -->
+            <div class="mobile-filters-dropdown" style="display: none;">
+              <div class="mobile-filter-grid">
+                <!-- Where Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-where-filter">Search</label>
+                  <input type="text"
+                         id="mobile-where-filter"
+                         name="where"
+                         class="mobile-filter-input"
+                         placeholder="Search properties">
+                </div>
+
+                <!-- Minimum Price Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-min-price-filter">Min Price</label>
+                  <input type="text"
+                         id="mobile-min-price-filter"
+                         name="minPrice"
+                         class="mobile-filter-input"
+                         placeholder="e.g. 2000">
+                </div>
+
+                <!-- Maximum Price Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-max-price-filter">Max Price</label>
+                  <input type="text"
+                         id="mobile-max-price-filter"
+                         name="maxPrice"
+                         class="mobile-filter-input"
+                         placeholder="e.g. 10000">
+                </div>
+
+                <!-- City Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-city-filter">City</label>
+                  <input type="text"
+                         id="mobile-city-filter"
+                         name="city"
+                         class="mobile-filter-input"
+                         placeholder="e.g. Lahore">
+                </div>
+
+                <!-- Rooms Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-rooms-filter">Rooms</label>
+                  <input type="text"
+                         id="mobile-rooms-filter"
+                         name="bedrooms"
+                         class="mobile-filter-input"
+                         placeholder="e.g. 3+">
+                </div>
+
+                <!-- Bathrooms Filter -->
+                <div class="mobile-filter-item">
+                  <label for="mobile-bathrooms-filter">Baths</label>
+                  <input type="text"
+                         id="mobile-bathrooms-filter"
+                         name="bathrooms"
+                         class="mobile-filter-input"
+                         placeholder="e.g. 2">
+                </div>
+              </div>
+
+              <!-- Mobile Reset Button -->
+              <div class="mobile-reset-button-container">
+                <button type="button" class="mobile-reset-filters-button">
+                  <i class="fas fa-undo"></i>
+                  <span>Reset Filters</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Desktop Search Form (Hidden on Mobile) -->
+            <div class="desktop-search-form">
+              <!-- Main Search and Filter Row -->
+              <div class="search-and-filters-row">
+                <!-- Main Search Bar -->
+                <div class="main-search-group">
+                  <div class="search-input-group">
+                    <label for="universal-search-input" class="search-label">Search</label>
+                    <input type="text"
+                           id="universal-search-input"
+                           name="universal-search"
+                           class="universal-search-input"
+                           placeholder="Search properties">
+                  </div>
+                </div>
+
+                <!-- Inline Filter Boxes -->
+                <div class="inline-filters">
+                  <!-- Minimum Price Filter -->
+                  <div class="inline-filter-box">
+                    <label for="min-price-filter">Min Price</label>
+                    <input type="text"
+                           id="min-price-filter"
+                           name="minPrice"
+                           class="inline-filter-input price-input"
+                           placeholder="e.g. 2000"
+                           inputmode="decimal">
+                  </div>
+
+                  <!-- Maximum Price Filter -->
+                  <div class="inline-filter-box">
+                    <label for="max-price-filter">Max Price</label>
+                    <input type="text"
+                           id="max-price-filter"
+                           name="maxPrice"
+                           class="inline-filter-input price-input"
+                           placeholder="e.g. 1000000"
+                           inputmode="decimal">
+                  </div>
+
+                  <!-- City Filter -->
+                  <div class="inline-filter-box">
+                    <label for="city-filter">City</label>
+                    <input type="text"
+                           id="city-filter"
+                           name="city"
+                           class="inline-filter-input text-input"
+                           placeholder="e.g. Lahore">
+                  </div>
+
+                  <!-- Rooms Filter -->
+                  <div class="inline-filter-box">
+                    <label for="rooms-filter">Rooms</label>
+                    <input type="text"
+                           id="rooms-filter"
+                           name="bedrooms"
+                           class="inline-filter-input number-input"
+                           placeholder="e.g. 3+"
+                           inputmode="numeric">
+                  </div>
+
+                  <!-- Baths Filter -->
+                  <div class="inline-filter-box">
+                    <label for="baths-filter">Baths</label>
+                    <input type="text"
+                           id="baths-filter"
+                           name="bathrooms"
+                           class="inline-filter-input number-input"
+                           placeholder="e.g. 2"
+                           inputmode="numeric">
+                  </div>
+                </div>
+
+                <!-- Reset Filters Button -->
+                <div class="reset-button-container">
+                  <button type="button" class="reset-filters-button" aria-label="Reset all filters">
+                    <i class="fas fa-undo"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Properties For Rent Section -->
+    <section class="section rent">
+      <div class="container">
+        <div class="title">
+          <h1>Properties For Rent</h1>
+          <p>Search over 2000 properties to rent from the top agents in the country</p>
+        </div>
+
+
+
+        <div class="rent-center" id="property-container">
+          <!-- Properties will be loaded dynamically from database -->
+          <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Loading properties...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>ComfortNest is your trusted partner in finding the perfect property. We connect renters and buyers with a wide range of residential and commercial listings, making your search effortless and efficient.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Street # 123, Okara</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+92 309 6547961</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>comfortnestproject@gmail.com</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=923239140684" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ComfortNest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files - Optimized Loading -->
+    <script src="js/api.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="mobile-search.js" defer></script>
+  </body>
+</html>

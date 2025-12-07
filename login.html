@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ComfortNest</title>
+    <link rel="stylesheet" href="login.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome and Boxicons for icons -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <!-- Navigation Header -->
+     <!-- Header Section -->
+    <header class="header" id="header">
+      <nav class="custom-navbar">
+        <div class="container">
+          <a class="custom-navbar-brand" href="/index.html">
+            <img src="./comf logo.png" alt="ComfortNest">
+          </a>
+          <button class="custom-hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="custom-nav-list">
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/index.html">Home</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/dashboard.html">Dashboard</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/about.html">About</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/contact.html">Contact</a></li>
+            <li class="custom-nav-item"><a class="custom-nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <!-- Login Form Section -->
+    <section class="login-section">
+        <div class="container">
+            <h2>Welcome Back</h2>
+            <div class="login-form-container">
+                <!-- Login tabs -->
+                <div class="login-tabs">
+                    <div class="login-tab active" id="email-tab">Email Login</div>
+                </div>
+                
+                <!-- Status message display -->
+                <div id="status-message" class="status-message"></div>
+
+                <!-- Email Login Form -->
+                <div class="login-form tab-content active" id="email-login">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#" id="forgot-password-link">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary">Login</button>
+                    </form>
+                </div>
+                
+                <div class="signup-link">
+                    <p>Don't have an account?</p>
+                    <a href="sign up.html">
+                        <button type="button" class="btn-secondary" style="background-color: #6abf00; color: #fff;">Sign up</button>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Reset Password</h3>
+            <form id="forgot-password-form">
+                <!-- Step 1: Email Input -->
+                <div id="step-1">
+                    <div class="form-group">
+                        <label for="reset-email">Enter your email address</label>
+                        <input type="email" id="reset-email" name="reset-email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="send-otp-btn" class="btn-primary">Send OTP</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: OTP Verification and New Password -->
+                <div id="otp-section" style="display: none;">
+                    <div class="form-group">
+                        <label for="otp">Enter OTP sent to your email</label>
+                        <input type="text" id="otp" name="otp" required placeholder="6-digit OTP">
+                        <div class="otp-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>OTP is valid for 15 minutes</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new-password" required placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" name="confirm-new-password" required placeholder="Confirm new password">
+                    </div>
+                    <div class="password-requirements">
+                        <p id="req-length"><i class="fas fa-check-circle"></i> Minimum 8 characters</p>
+                        <p id="req-number"><i class="fas fa-check-circle"></i> Include at least one number</p>
+                        <p id="req-special"><i class="fas fa-check-circle"></i> Include at least one special character</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="reset-password-btn" class="btn-primary">Reset Password</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>ComfortNest is your trusted partner in finding the perfect property. We connect renters and buyers with a wide range of residential and commercial listings, making your search effortless and efficient.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Street # 123, Okara</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+92 323 9140684</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>comfortnestproject@gmail.com</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=923239140684" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ComfortNest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Auth0 SDK -->
+    <!-- <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script> -->
+    
+    <!-- Application Scripts -->
+    <!-- <script src="js/auth0-config.js"></script> -->
+    <!-- <script src="js/login-auth0.js" defer></script> -->
+
+    <!-- API and JS scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+    <script>
+      (function(){
+        try {
+          // Initialize EmailJS with your user ID (public key)
+          emailjs.init("TZ1vCirsSMLfjTch5");
+          console.log("EmailJS initialized successfully with version:", emailjs.SDK_VERSION || "unknown");
+        } catch (error) {
+          console.error("EmailJS initialization failed:", error);
+        }
+      })();
+    </script>
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

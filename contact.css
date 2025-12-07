@@ -1,0 +1,423 @@
+/* Add these at the top or after your general styles */
+@import url('styles.css');
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden; /* Prevents content from overflowing */
+    padding: 20px 0; /* Add some padding top and bottom */
+    
+}
+
+/* Contact Section Styles */
+.contact {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #6cbe02; /* A nice blue color */
+}
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly between the image and form */
+    align-items: center; /* Vertically aligns items in the center */
+    margin-bottom: 30px;
+}
+
+.form-left {
+    width: 45%;
+}
+
+.form-right {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensures padding doesn't affect the overall width */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allows vertical resizing of the textarea */
+}
+
+.form-right button {
+    background-color: #6cbe02;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.form-right button:hover {
+    background-color: #6cbe02; /* Darker shade of blue on hover */
+}
+
+/* Contact Details Styles */
+.contact-details {
+    display: flex;
+    justify-content: space-around; /* Evenly distributes the detail boxes */
+    text-align: left;
+}
+
+.detail-box {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-box i {
+    font-size: 2em;
+    color: #6cbe02;
+    margin-bottom: 10px;
+}
+
+.detail-box span {
+    font-weight: bold;
+    color: #555;
+}
+
+.detail-box p {
+    margin-top: 5px;
+    color: #777;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .contact-form {
+        flex-direction: column; /* Stack the image and form on top of each other */
+    }
+
+    .form-left,
+    .form-right {
+        width: 100%;
+        margin-bottom: 20px; /* Add space between the image and the form */
+    }
+
+    .contact-details {
+        flex-direction: column; /* Stack the detail boxes on top of each other */
+    }
+
+    .detail-box {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Remove or override the old header background if needed */
+header {
+  background: none;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+}
+
+/* Contact Page Styles */
+
+/* Page Banner */
+.page-banner {
+    background-color: var(--secondary-color);
+    padding: 80px 0 40px;
+    color: white;
+    text-align: center;
+    /* Removed margin-top as it's now handled globally in styles.css */
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.page-banner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact-page-section {
+    background-color: var(--bg-light);
+    padding: 60px 0;
+}
+
+/* Contact Form Container */
+.contact-form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.contact-form-container h2 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.contact-form {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    background-color: #f9f9f9;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 191, 0, 0.1);
+    outline: none;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Contact Details */
+.contact-details-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.contact-details-container h2 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info {
+    margin-top: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(106, 191, 0, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.icon-box i {
+    font-size: 1.2rem;
+}
+
+.info-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--secondary-color);
+}
+
+.info-content p {
+    color: var(--text-medium);
+    margin: 0;
+}
+
+.info-content a {
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.info-content a:hover {
+    color: var(--primary-color);
+}
+
+/* Social Links */
+.social-links h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(106, 191, 0, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Map Section */
+.map-section {
+    margin-top: 2rem;
+}
+
+.map-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .page-banner {
+        padding: 70px 0 30px;
+    }
+    
+    .page-banner h1 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-details-container {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-banner {
+        padding: 60px 0 25px;
+    }
+    
+    .page-banner h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-form-container,
+    .contact-details-container {
+        padding: 1.5rem;
+    }
+    
+    .contact-form-container h2,
+    .contact-details-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .info-item {
+        margin-bottom: 1.2rem;
+    }
+    
+    .icon-box {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .icon-box i {
+        font-size: 1rem;
+    }
+    
+    .info-content h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-banner {
+        padding: 50px 0 20px;
+    }
+    
+    .social-icons {
+        flex-wrap: wrap;
+    }
+}
+
+/* Add or improve media queries for better mobile responsiveness */ 

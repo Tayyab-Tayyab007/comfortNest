@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Property - Comfort Nest</title>
+    
+    <!-- Font Awesome and Boxicons for icons -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+        /* ===== ADD PROPERTY PAGE BEAUTIFUL STYLES ===== */
+
+        /* Main Container & Layout */
+        .add-property-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .add-property-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6abf00, #4a9b00);
+        }
+
+        .form-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #ecf0f1;
+            position: relative;
+        }
+
+        .form-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #6abf00;
+        }
+
+        /* Form Groups & Inputs */
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e8ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #fafbfc;
+            color: #2c3e50;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #6abf00;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(106, 191, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-control::placeholder {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        /* Select Dropdown */
+        select.form-control {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 1rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 3rem;
+        }
+
+        /* Textarea */
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            background: linear-gradient(135deg, #6abf00 0%, #4a9b00 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(106, 191, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #4a9b00 0%, #6abf00 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(106, 191, 0, 0.4);
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:active {
+            transform: translateY(-1px);
+        }
+
+        /* Image Upload Section */
+        .image-upload-section {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .image-upload-section:hover {
+            border-color: #6abf00;
+            background: #f0f8e8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(106, 191, 0, 0.1);
+        }
+
+        /* Image Preview */
+        .image-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .image-preview-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: move;
+        }
+
+        .image-preview-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-preview-wrapper:hover img {
+            transform: scale(1.1);
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .delete-btn:hover {
+            background: rgba(231, 76, 60, 1);
+            transform: scale(1.1);
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: none;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #1565c0;
+        }
+
+        .alert-info::before {
+            background: #2196f3;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            color: #c62828;
+        }
+
+        .alert-danger::before {
+            background: #f44336;
+        }
+
+        .alert-warning {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            color: #ef6c00;
+        }
+
+        .alert-warning::before {
+            background: #ff9800;
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            color: #2e7d32;
+        }
+
+        .alert-success::before {
+            background: #4caf50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .add-property-container {
+                padding: 1rem 0;
+            }
+
+            .form-section {
+                padding: 2rem 1.5rem;
+                border-radius: 15px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                padding: 0.8rem 1rem;
+            }
+
+            .btn-submit {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .image-preview {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .image-preview-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Form Validation Styles */
+        .form-control.is-invalid {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+
+        .form-control.is-valid {
+            border-color: #27ae60;
+            background-color: #f2fdf2;
+        }
+
+        .invalid-feedback {
+            display: block;
+            color: #e74c3c;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .valid-feedback {
+            display: block;
+            color: #27ae60;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Floating Labels Effect */
+        .form-group.floating-label {
+            position: relative;
+        }
+
+        .form-group.floating-label label {
+            position: absolute;
+            top: 1rem;
+            left: 1.2rem;
+            background: white;
+            padding: 0 0.5rem;
+            color: #95a5a6;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            text-transform: none;
+            letter-spacing: normal;
+            font-weight: 400;
+        }
+
+        .form-group.floating-label .form-control:focus + label,
+        .form-group.floating-label .form-control:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            font-size: 0.8rem;
+            color: #6abf00;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="custom-navbar">
+            <div class="container">
+                <a class="custom-navbar-brand" href="/index.html">
+                    <img src="./comf logo.png" alt="ComfortNest">
+                </a>
+                <button class="custom-hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="custom-nav-list">
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/index.html">Home</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/dashboard.html">Dashboard</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/about.html">About</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/contact.html">Contact</a></li>
+                    <li class="custom-nav-item"><a class="custom-nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="custom-nav-item"><button id="logout-btn" class="btn btn-outline-light ms-lg-3 px-3">Logout <i class="fa-solid fa-right-from-bracket"></i></button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content add-property-container" style="padding-top: 100px;">
+        <div class="add-property-wrapper">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Add New Property</h1>
+                <p class="page-subtitle">List your property and connect with potential tenants</p>
+            </div>
+
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2>Property Details</h2>
+                        <form id="add-property-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="title"><i class="fas fa-home me-2"></i>Property Title</label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g. Modern 3 Bedroom Villa" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="propertyType"><i class="fas fa-building me-2"></i>Property Type</label>
+                                        <select class="form-control" id="propertyType" name="propertyType" required>
+                                            <option value="">Select Type</option>
+                                            <option value="House">🏠 House</option>
+                                            <option value="Apartment">🏢 Apartment</option>
+                                            <option value="Condo">🏘️ Condo</option>
+                                            <option value="Villa">🏛️ Villa</option>
+                                            <option value="Studio">🏠 Studio</option>
+                                            <option value="Other">🏗️ Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="description"><i class="fas fa-align-left me-2"></i>Description</label>
+                                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe your property in detail - amenities, features, neighborhood..." required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="price"><i class="fas fa-money-bill-wave me-2"></i>Price (PKR per month)</label>
+                                        <input type="number" class="form-control" id="price" name="price" placeholder="e.g. 50000" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="size"><i class="fas fa-ruler-combined me-2"></i>Size (sqft)</label>
+                                        <input type="number" class="form-control" id="size" name="size" placeholder="e.g. 1200" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="location"><i class="fas fa-map-marker-alt me-2"></i>General Location (e.g., City, Area)</label>
+                                        <input type="text" class="form-control" id="location" name="location" placeholder="e.g. Islamabad, Bahria Town Phase 7" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="street">Street Address</label>
+                                        <input type="text" class="form-control" id="street" name="street" placeholder="e.g. 123 Main St" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="e.g. Islamabad" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="state">State/Province</label>
+                                        <input type="text" class="form-control" id="state" name="state" placeholder="e.g. Punjab" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="zipCode">Zip Code (Optional)</label>
+                                        <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="e.g. 44000">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="country">Country</label>
+                                        <input type="text" class="form-control" id="country" name="country" placeholder="e.g. Pakistan" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="bedrooms"><i class="fas fa-bed me-2"></i>Bedrooms</label>
+                                        <input type="number" class="form-control" id="bedrooms" name="bedrooms" placeholder="e.g. 3" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="bathrooms"><i class="fas fa-bath me-2"></i>Bathrooms</label>
+                                        <input type="number" class="form-control" id="bathrooms" name="bathrooms" placeholder="e.g. 2" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="yearBuilt">Year Built (Optional)</label>
+                                        <input type="number" class="form-control" id="yearBuilt" name="yearBuilt" placeholder="e.g. 2005">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="images"><i class="fas fa-images me-2"></i>Property Images (Max 5)</label>
+                                <div class="image-upload-section" onclick="document.getElementById('images').click()">
+                                    <i class="fas fa-images" style="font-size: 3rem; color: #6abf00; margin-bottom: 1rem;"></i>
+                                    <p style="margin-bottom: 1rem; color: #7f8c8d;">Click anywhere here to select images from your device</p>
+                                    <input type="file" class="form-control" id="images" name="images" accept="image/*" multiple style="display: none;">
+                                    <button type="button" class="btn" style="background: #6abf00; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 25px;">
+                                        <i class="fas fa-upload me-2"></i>Choose Images
+                                    </button>
+                                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #95a5a6;">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Supported formats: JPG, PNG, GIF | Max 5 images | Max 10MB per file
+                                    </p>
+                                </div>
+                                <div class="image-preview" id="image-preview"></div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="fas fa-plus-circle me-2"></i>Add Property
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>ComfortNest is your trusted partner in finding the perfect property. We connect renters and buyers with a wide range of residential and commercial listings, making your search effortless and efficient.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Street # 123, Okara</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+92 323 9140684</span>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>comfortnestproject@gmail.com</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=923239140684" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ComfortNest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/api.js"></script>
+    <script src="js/add-property.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

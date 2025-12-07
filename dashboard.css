@@ -1,0 +1,586 @@
+/* General Styles */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+.navbar-brand img {
+    height: 40px;
+}
+.navbar-nav .nav-link {
+    color: #495057;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #28a745;
+}
+
+.dashboard-main {
+    padding: 40px 0;
+}
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.dashboard-card .card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 15px;
+}
+
+.profile-info p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+.profile-info p i {
+    color: #28a745;
+    width: 25px;
+}
+
+.stats-grid .stat-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #e6ffe6; /* Light green */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.stats-grid .stat-item i {
+    font-size: 2.5rem;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+.stats-grid .stat-item .stat-count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40;
+}
+.stats-grid .stat-item .stat-label {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.property-list-grid .property-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+.property-list-grid .property-item:hover {
+    transform: translateY(-5px);
+}
+.property-item img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+.property-item .card-body {
+    padding: 20px;
+}
+.property-item .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+.property-item .card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+.property-item .property-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #28a745;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.property-item .property-actions .btn {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.add-property-floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.add-property-floating-btn:hover {
+    background-color: #218838;
+    color: white;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer .social-link {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.3rem;
+}
+.footer .social-link:hover {
+    color: #28a745;
+}
+.footer-links a {
+    color: #adb5bd;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* General mobile adjustments */
+    .dashboard-main {
+        padding: 20px 0;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Main title adjustments */
+    .dashboard-main h1 {
+        font-size: 2rem !important;
+        margin-bottom: 2rem !important;
+        text-align: center;
+    }
+
+    /* Phone verification message */
+    .dashboard-main > .container > div:first-of-type {
+        margin-bottom: 1.5rem;
+        padding: 15px;
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 8px;
+    }
+
+    /* Dashboard cards mobile styling */
+    .dashboard-card {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .dashboard-card .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Profile card mobile */
+    .profile-info p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-info p i {
+        margin-right: 8px;
+        min-width: 20px;
+    }
+
+    /* Statistics card mobile */
+    .stats-grid .stat-item {
+        padding: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .stats-grid .stat-item i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .stats-grid .stat-item .stat-count {
+        font-size: 2rem;
+    }
+
+    .stats-grid .stat-item .stat-label {
+        font-size: 0.9rem;
+    }
+
+    /* Property listings mobile */
+    .listings-card .card-title {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px;
+    }
+
+    .listings-card .input-group {
+        max-width: 100% !important;
+    }
+
+    /* Property grid mobile */
+    .property-list-grid {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .property-list-grid .col-md-4,
+    .property-list-grid .col-lg-4 {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .property-item {
+        margin: 0 5px;
+    }
+
+    .property-item img {
+        height: 180px;
+    }
+
+    .property-item .card-body {
+        padding: 15px;
+    }
+
+    .property-item .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+
+    .property-item .card-text {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .property-item .property-price {
+        font-size: 1.4rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .property-item .property-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .property-item .property-actions .btn {
+        margin-right: 0;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Floating button mobile */
+    .add-property-floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Navbar mobile adjustments */
+    .navbar-brand img {
+        height: 35px;
+    }
+}
+
+/* Extra small devices (phones in portrait, less than 576px) */
+@media (max-width: 575px) {
+    .dashboard-main {
+        padding: 15px 0;
+    }
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Main title for very small screens */
+    .dashboard-main h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Dashboard cards for very small screens */
+    .dashboard-card {
+        padding: 15px 10px;
+        margin-bottom: 15px;
+    }
+
+    .dashboard-card .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    /* Profile info very small screens */
+    .profile-info p {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    /* Statistics very small screens */
+    .stats-grid .stat-item {
+        padding: 12px;
+    }
+
+    .stats-grid .stat-item i {
+        font-size: 1.8rem;
+    }
+
+    .stats-grid .stat-item .stat-count {
+        font-size: 1.8rem;
+    }
+
+    /* Property items very small screens */
+    .property-item {
+        margin: 0 2px;
+    }
+
+    .property-item img {
+        height: 160px;
+    }
+
+    .property-item .card-body {
+        padding: 12px;
+    }
+
+    .property-item .card-title {
+        font-size: 1.1rem;
+    }
+
+    .property-item .property-price {
+        font-size: 1.3rem;
+    }
+
+    .property-item .property-actions .btn {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    /* Floating button very small screens */
+    .add-property-floating-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Search input very small screens */
+    .listings-card .input-group input {
+        font-size: 0.9rem;
+    }
+
+    .listings-card .input-group .btn {
+        padding: 6px 10px;
+    }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .dashboard-main h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .dashboard-card {
+        padding: 15px;
+    }
+
+    .property-item img {
+        height: 140px;
+    }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .dashboard-card {
+        padding: 25px;
+    }
+
+    .property-item img {
+        height: 200px;
+    }
+
+    .property-item .card-title {
+        font-size: 1.3rem;
+    }
+
+    .add-property-floating-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.9rem;
+    }
+}
+
+/* Ensure proper spacing and alignment */
+.dashboard-content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.dashboard-content-wrapper .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.dashboard-content-wrapper .row > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Mobile-first approach for property grid */
+@media (max-width: 575px) {
+    .property-list-grid .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .property-list-grid .row > [class*="col-"] {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/* Loading state mobile improvements */
+@media (max-width: 768px) {
+    .spinner-border {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .empty-state i {
+        font-size: 2rem !important;
+    }
+
+    .empty-state h5 {
+        font-size: 1.2rem;
+    }
+
+    .empty-state p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    /* Larger touch targets */
+    .property-item .property-actions .btn {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+    }
+
+    .add-property-floating-btn {
+        min-height: 50px;
+        min-width: 50px;
+        touch-action: manipulation;
+    }
+
+    /* Better tap targets for property cards */
+    .property-item {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    }
+
+    /* Improved form controls */
+    .form-control {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    /* Better spacing for touch */
+    .property-item .card-body {
+        padding: 20px 15px;
+    }
+
+    /* Improved readability */
+    .property-item .card-text {
+        line-height: 1.5;
+    }
+
+    .profile-info p {
+        line-height: 1.6;
+        padding: 5px 0;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .property-item {
+        transition: none;
+    }
+
+    .add-property-floating-btn {
+        transition: none;
+    }
+
+    .dashboard-card {
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .dashboard-card {
+        border: 2px solid #000;
+    }
+
+    .property-item {
+        border: 1px solid #000;
+    }
+
+    .add-property-floating-btn {
+        border: 2px solid #000;
+    }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    .dashboard-card {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+
+    .property-item {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+}
